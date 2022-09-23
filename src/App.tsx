@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import InputKey from "./InputKey";
+
+export type KeyWordsType = {
+  key_1: string;
+  key_2: string;
+}
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [keyword, setKeyword] = React.useState<KeyWordsType>({
+    key_1: "",
+    key_2: "",
+  });
+
+  return <div className="App">
+  <InputKey keyword={keyword} setKeyword={setKeyword} />
+  </div>;
 }
 
 export default App;
